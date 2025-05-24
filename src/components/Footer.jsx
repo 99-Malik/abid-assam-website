@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 const Footer = () => {
   const pathname = usePathname();
   const isWaterHeaterRoute = pathname === "/companies/water-heater";
-  const company = isWaterHeaterRoute ? "Home Appliance Fix UAE" : companyName;
+  const company = isWaterHeaterRoute ? "Appliance Repairs AE" : companyName;
 
   return (
     <footer
