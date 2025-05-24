@@ -21,7 +21,7 @@ export const getData = (company) => {
       title: "Dishwasher Repair",
       imgUrl: "/static/dishwasher.jpeg",
       slug: "dishwasher-repair",
-      description: `At ${company}, we specialize in providing high-quality dishwasher repair services. Our expert technicians are trained to diagnose and resolve a wide range of dishwasher issues, ensuring your appliance operates efficiently and effectively.`,
+      description: `At ${company}, we specialize in providing a high-quality dishwasher repair services. Our expert technicians are trained to diagnose and resolve a wide range of dishwasher issues, ensuring your appliance operates efficiently and effectively.`,
       commonProblems: [
         "Dishwasher not starting",
         "Water not draining properly",
