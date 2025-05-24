@@ -51,7 +51,7 @@ const services =
       <div
         className="w-full bg-cover min-h-[30rem] bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url(/static/about.jpg)",
+          backgroundImage: "url(/static/solar-7.jpg)",
         }}
       ></div>
       <div className="w-full bg-black/5 px-10 py-16">
