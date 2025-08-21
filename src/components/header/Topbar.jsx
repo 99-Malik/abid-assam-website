@@ -9,13 +9,17 @@ const Topbar = ({ company }) => {
   const getBgColor = () => {
     switch (company) {
       case "Lg":
-        return "bg-lgPrimary"
+        // return "bg-lgPrimary"
+         return "bg-primary"
       case "Samsung":
-        return "bg-samsungPrimary"
+        // return "bg-samsungPrimary"
+         return "bg-primary"
       case "Bosch":
-        return "bg-boschPrimary"
+        // return "bg-boschPrimary"
+         return "bg-primary"
       case "Siemens":
-        return "bg-siemensPrimary"
+        // return "bg-siemensPrimary"
+         return "bg-primary"
       default:
         return "bg-primary"
     }

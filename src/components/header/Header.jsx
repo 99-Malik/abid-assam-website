@@ -22,7 +22,7 @@ const Header = ({ company = companyName }) => {
     <header className="flex flex-col w-full items-center justify-center border-b border-black/5">
       <Topbar company={dynamicCompany} />
       <div className="flex w-full justify-between px-5 py-4 max-w-7xl items-center gap-5">
-        {dynamicCompany === "Siemens" ? (
+        {dynamicCompany === "Appliance Repairs AE" ? (
           <Link href="/companies/siemens">
             <Image
               src="/static/siemens.svg"
@@ -31,11 +31,11 @@ const Header = ({ company = companyName }) => {
               alt="Siemens"
             />
           </Link>
-        ) : dynamicCompany === "Bosch" ? (
+        ) : dynamicCompany === "Appliance Repairs AE" ? (
           <Link href="/companies/bosch">
             <Image src="/static/bosch.svg" width={150} height={50} alt="Bosch" />
           </Link>
-        ) : dynamicCompany === "Samsung" ? (
+        ) : dynamicCompany === "Appliance Repairs AE" ? (
           <Link href="/companies/samsung">
             <Image
               src="/static/samsung.svg"
@@ -44,7 +44,7 @@ const Header = ({ company = companyName }) => {
               alt="Samsung"
             />
           </Link>
-        ) : dynamicCompany === "Lg" ? (
+        ) : dynamicCompany === "Appliance Repairs AE" ? (
           <Link href="/companies/lg">
             <Image src="/static/lg.svg" width={100} height={50} alt="LG" />
           </Link>
@@ -58,7 +58,7 @@ const Header = ({ company = companyName }) => {
           </Link>
         ) : (
           <Link href="/" className="text-xl font-bold">
-            {dynamicCompany}
+            {companyName}
           </Link>
         )}
         <Sidebar company={dynamicCompany} />
