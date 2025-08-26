@@ -12,17 +12,26 @@ const Header = ({ company = companyName }) => {
   const pathname = usePathname();
 
   // Check the route and override company name for specific paths
-  const dynamicCompany =
-  pathname === "/companies/water-heater"
-    ? "Appliance Repairs AE"
-    : pathname === "/companies/ac"
-    ? "Appliance Repairs AE"
-    : company;
+   let dynamicCompany= company;
+
+  if (pathname === "/companies/water-heater") {
+    dynamicCompany = "water-heater";
+  } else if (pathname === "/companies/ac") {
+    dynamicCompany = "ac";
+  } else if (pathname.includes("/companies/siemens")) {
+    dynamicCompany = "siemens";
+  } else if (pathname.includes("/companies/bosch")) {
+    dynamicCompany = "bosch";
+  } else if (pathname.includes("/companies/samsung")) {
+    dynamicCompany = "samsung";
+  } else if (pathname.includes("/companies/lg")) {
+    dynamicCompany = "lg";
+  }
   return (
     <header className="flex flex-col w-full items-center justify-center border-b border-black/5">
       <Topbar company={dynamicCompany} />
       <div className="flex w-full justify-between px-5 py-4 max-w-7xl items-center gap-5">
-        {dynamicCompany === "Appliance Repairs AE" ? (
+        {dynamicCompany === "siemens" ? (
           <Link href="/companies/siemens">
             <Image
               src="/static/siemens.svg"
@@ -31,11 +40,11 @@ const Header = ({ company = companyName }) => {
               alt="Siemens"
             />
           </Link>
-        ) : dynamicCompany === "Appliance Repairs AE" ? (
+        ) : dynamicCompany === "bosch" ? (
           <Link href="/companies/bosch">
             <Image src="/static/bosch.svg" width={150} height={50} alt="Bosch" />
           </Link>
-        ) : dynamicCompany === "Appliance Repairs AE" ? (
+        ) : dynamicCompany === "samsung" ? (
           <Link href="/companies/samsung">
             <Image
               src="/static/samsung.svg"
@@ -44,7 +53,7 @@ const Header = ({ company = companyName }) => {
               alt="Samsung"
             />
           </Link>
-        ) : dynamicCompany === "Appliance Repairs AE" ? (
+        ) : dynamicCompany === "lg" ? (
           <Link href="/companies/lg">
             <Image src="/static/lg.svg" width={100} height={50} alt="LG" />
           </Link>

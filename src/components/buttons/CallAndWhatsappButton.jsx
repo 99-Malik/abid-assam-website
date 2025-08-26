@@ -12,13 +12,13 @@ const CallAndWhatsappButton = ({ className, company = companyName }) => {
         className={cn(
           "group flex items-center gap-2 px-4 rounded-sm text-sm py-2",
           company === "Lg"
-            ? "bg-primary border-primary text-black "
+            ? "bg-lgPrimary border-white text-white "
             : company === "Samsung"
             ? "bg-samsungPrimary border-samsungPrimary text-white"
             : company === "Bosch"
-            ? "bg-primary border-primary text-black"
+            ? "bg-boschPrimary border-boschPrimary text-white"
             : company === "Siemens"
-            ? "bg-primary border-primary text-black"
+            ? "bg-siemensPrimary border-siemensPrimary text-white"
             : "bg-primary border-primary text-black",
           "hover:border-black/10"
         )}

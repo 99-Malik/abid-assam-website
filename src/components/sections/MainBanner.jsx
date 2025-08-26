@@ -20,7 +20,7 @@ function MainBanner({ company = "Appliance Service Center UAE" }) {
         className="z-50 flex flex-col justify-center items-center"
       >
         <motion.p className="font-bold text-3xl md:text-5xl px-5 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-        Appliance Service Center - Fast, reliable repairs for a hassle-free home.
+        Appliance Service Center {company}- Fast, reliable repairs for a hassle-free home.
         </motion.p>
         <motion.p className="max-w-7xl mb-5 px-5 md:text-lg text-white text-center">
           At our Service Center, our expert technicians are dedicated to restoring your appliances to optimal performance,

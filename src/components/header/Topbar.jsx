@@ -5,21 +5,18 @@ import { cn } from "@/lib/utils"
 import { Phone, MessageCircle } from "lucide-react"
 
 const Topbar = ({ company }) => {
-  // Determine background and text colors based on company
+  const normalized = (company || "").toLowerCase()
+
   const getBgColor = () => {
-    switch (company) {
-      case "Lg":
-        // return "bg-lgPrimary"
-         return "bg-primary"
-      case "Samsung":
-        // return "bg-samsungPrimary"
-         return "bg-primary"
-      case "Bosch":
-        // return "bg-boschPrimary"
-         return "bg-primary"
-      case "Siemens":
-        // return "bg-siemensPrimary"
-         return "bg-primary"
+    switch (normalized) {
+      case "lg":
+        return "bg-lgPrimary"
+      case "samsung":
+        return "bg-samsungPrimary"
+      case "bosch":
+        return "bg-boschPrimary"
+      case "siemens":
+        return "bg-siemensPrimary"
       default:
         return "bg-primary"
     }
@@ -29,7 +26,11 @@ const Topbar = ({ company }) => {
 
   return (
     <div
-      className={cn("w-full py-2 shadow-sm", getBgColor(), isOtherCompany ? "text-white" : "text-primary-foreground")}
+      className={cn(
+        "w-full py-2 shadow-sm",
+        getBgColor(),
+        isOtherCompany ? "text-white" : "text-primary-foreground"
+      )}
     >
       <div className="container mx-auto max-w-7xl">
         <div className="flex items-center justify-center md:justify-end gap-4">
@@ -67,4 +68,3 @@ const Topbar = ({ company }) => {
 }
 
 export default Topbar
-
