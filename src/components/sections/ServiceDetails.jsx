@@ -12,60 +12,46 @@ const ServiceDetails = ({ company = companyName }) => {
 
   // Determine which data to use based on the route
   const services =
-  pathname === "/companies/water-heater"
-    ? getSolarData(company) // Use solar data for water-heater route
-    : pathname === "/companies/ac"
-    ? getAcData(company) // Use AC-specific data for AC route
-    : getData(company); // Use general data for other routes
+    pathname === "/companies/water-heater"
+      ? getSolarData(company) // Use solar data for water-heater route
+      : pathname === "/companies/ac"
+        ? getAcData(company) // Use AC-specific data for AC route
+        : getData(company); // Use general data for other routes
 
   return (
     <div
-      className="flex flex-col items-center justify-center w-full shadow-xl bg-black/5"
+      className="flex flex-col items-center justify-center w-full py-20 bg-background"
       id="service-details"
     >
-      <div className="flex flex-col items-center justify-center w-full max-w-7xl px-5 py-20 gap-5">
-        <div className="text-3xl w-fit flex justify-center items-center flex-col gap-2 font-semibold uppercase">
-          Service Details
-          <div
-            className={cn(
-              "w-1/2 h-0.5",
-              company === "Lg"
-                ? "bg-lgPrimary"
-                : company === "Samsung"
-                ? "bg-samsungPrimary"
-                : company === "Bosch"
-                ? "bg-boschPrimary"
-                : company === "Siemens"
-                ? "bg-siemensPrimary"
-                : "bg-primary"
-            )}
-          ></div>
-        </div>
-        <div className="max-w-6xl text-center text-sm">
-        We offer a comprehensive range of home appliance repair
-          services tailored to meet your specific needs. Our skilled technicians
-          are trained to handle various appliance issues, from refrigerators and
-          washers to ovens and dishwashers. We pride ourselves on our
-          transparent service process, ensuring that you're informed every step
-          of the way. With a commitment to using high-quality parts and the
-          latest repair techniques, we aim to restore your appliances to optimal
-          functioning as quickly and efficiently as possible. Explore our
-          detailed service offerings below to find the right solution for your
-          appliance repair needs.
+      <div className="flex flex-col items-center justify-center w-full max-w-7xl px-5 mb-16 gap-8">
+        <div className="flex flex-col items-center text-center gap-4">
+          <span className="text-primary font-bold uppercase tracking-wider text-sm border border-primary/20 px-3 py-1 rounded-full bg-primary/10">
+            Comprehensive Care
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white">
+            Detailed Service Information
+          </h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
+            We offer a comprehensive range of home appliance repair services tailored to meet your specific needs.
+            From rigorous diagnostics to premium repairs, we ensure everything is handled with care.
+          </p>
         </div>
       </div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-5 gap-5">
-        {services.map((service) => (
-          <OneService
-            key={service.slug}
-            title={service.title}
-            description={service.description}
-            commonProblems={service.commonProblems}
-            slug={service.slug}
-            company={company}
-            imgUrl={service.imgUrl}
-          />
-        ))}
+
+      <div className="w-full max-w-7xl px-5">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+          {services.map((service) => (
+            <OneService
+              key={service.slug}
+              title={service.title}
+              description={service.description}
+              commonProblems={service.commonProblems}
+              slug={service.slug}
+              company={company}
+              imgUrl={service.imgUrl}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -12,44 +12,25 @@ const OurServices = ({ company = companyName }) => {
   const showCompanyName = pathname !== "/companies/water-heater";
 
   return (
-    <section id="services" className="flex items-center justify-center w-full">
-      <div className="flex flex-col items-center justify-center w-full max-w-7xl px-5 py-20 gap-5">
-        <div className="text-3xl w-fit flex justify-center items-center flex-col gap-2 font-semibold uppercase">
-          Our services
-          <div
-            className={cn(
-              "w-1/2 h-0.5",
-              company === "Lg"
-                ? "bg-lgPrimary"
-                : company === "Samsung"
-                ? "bg-samsungPrimary"
-                : company === "Bosch"
-                ? "bg-boschPrimary"
-                : company === "Siemens"
-                ? "bg-siemensPrimary"
-                : "bg-primary"
-            )}
-          ></div>
+    <section id="services" className="relative flex w-full items-center justify-center bg-background py-24">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background pointer-events-none" />
+
+      <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-7xl px-5 gap-12">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <span className="text-primary font-bold uppercase tracking-wider text-sm border border-primary/20 px-3 py-1 rounded-full bg-primary/10">
+            What We Do
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+            Our Premium Services
+          </h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-transparent via-primary to-transparent" />
+          <p className="max-w-2xl text-muted-foreground text-lg">
+            We specialize in diagnosing and repairing a wide range of household appliances.
+            Experience the difference with our expert care.
+          </p>
         </div>
-        <div className="max-w-3xl text-center text-sm">
-          {showCompanyName ? (
-            <>
-           Our mission is to deliver top-notch repair services
-              that exceed our customers' expectations. We understand that a
-              malfunctioning appliance can disrupt your daily routine, which is
-              why we strive for quick turnaround times and exceptional customer
-              service. Your satisfaction is our priority!
-            </>
-          ) : (
-            <>
-              Our mission is to deliver top-notch repair services that exceed
-              our customers' expectations. We understand that a malfunctioning
-              appliance can disrupt your daily routine, which is why we strive
-              for quick turnaround times and exceptional customer service. Your
-              satisfaction is our priority!
-            </>
-          )}
-        </div>
+
         <ServicesCarousel company={company} />
       </div>
     </section>

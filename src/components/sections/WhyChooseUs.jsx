@@ -1,70 +1,70 @@
 import { companyName } from "@/libs/data";
 import CallAndWhatsappButton from "../buttons/CallAndWhatsappButton";
 import { cn } from "@/lib/utils";
+import { ShieldCheck, Award, Clock, DollarSign, Wrench, Smile } from "lucide-react";
+
+const FeatureCard = ({ icon: Icon, title, description }) => (
+  <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-white/5 hover:border-primary/20 hover:bg-white/5 transition-all duration-300">
+    <div className="p-4 rounded-full bg-primary/10 text-primary mb-4">
+      <Icon size={32} />
+    </div>
+    <h3 className="text-lg font-bold text-white mb-2">{title}</h3>
+    <p className="text-sm text-muted-foreground">{description}</p>
+  </div>
+);
 
 const WhyChooseUs = ({ company = companyName }) => {
+  const features = [
+    {
+      icon: Wrench,
+      title: "Expert Technicians",
+      description: "Our certified technicians use the latest techniques for efficient and reliable service."
+    },
+    {
+      icon: Award,
+      title: "Quality Repairs",
+      description: "We use only top-quality parts and tools to restore your appliances to optimal performance."
+    },
+    {
+      icon: DollarSign,
+      title: "Transparent Pricing",
+      description: "Clear and competitive pricing with no hidden fees. You know exactly what to expect."
+    },
+    {
+      icon: Clock,
+      title: "Convenient Service",
+      description: "Flexible scheduling, including same-day and emergency services to fit your busy lifestyle."
+    },
+    {
+      icon: ShieldCheck,
+      title: "Satisfaction Guarantee",
+      description: "We back our work with a comprehensive warranty on all repairs for your peace of mind."
+    },
+    {
+      icon: Smile,
+      title: "Responsive Support",
+      description: "Our friendly team is always ready to assist with any questions or concerns you may have."
+    }
+  ];
+
   return (
-    <section id="contact" className="flex justify-center w-full">
-      <div className="flex w-full max-w-7xl px-5 py-20 flex-col justify-center items-center">
-        <div className="text-3xl w-fit flex justify-center items-center flex-col gap-2 font-semibold uppercase mb-8">
-          Why Choose Us
-          <div
-            className={cn(
-              "w-1/2 h-0.5",
-              company === "Lg"
-                ? "bg-lgPrimary"
-                : company === "Samsung"
-                ? "bg-samsungPrimary"
-                : company === "Bosch"
-                ? "bg-boschPrimary"
-                : company === "Siemens"
-                ? "bg-siemensPrimary"
-                : "bg-primary"
-            )}
-          ></div>
-        </div>
-        <div className="max-w-6xl mx-auto text-lg mb-6">
-          <p className="mb-4">
-         We understand that choosing the right appliance repair
-            service is crucial for your home. Our commitment to excellence,
-            combined with our extensive experience, makes us the ideal choice
-            for all your appliance needs. Here’s why our customers trust us:
+    <section id="why-us" className="flex justify-center w-full bg-black/20 py-24">
+      <div className="flex w-full max-w-7xl px-5 flex-col items-center">
+        <div className="text-center mb-16">
+          <span className="text-primary font-bold uppercase tracking-wider text-sm">Why Choose Us</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">The {company} Difference</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            We understand that choosing the right appliance repair service is crucial.
+            Here is why thousands of customers trust us.
           </p>
-          <ul className="list-disc list-inside space-y-2">
-            <li>
-              <span className="font-bold">Expert Technicians:</span> Our
-              certified technicians are well-trained in the latest repair
-              techniques, ensuring efficient and reliable service.
-            </li>
-            <li>
-              <span className="font-bold">Quality Repairs:</span> We use
-              top-quality parts and tools, restoring your appliances to their
-              optimal performance.
-            </li>
-            <li>
-              <span className="font-bold">Transparent Pricing:</span> Enjoy
-              clear and competitive pricing with no hidden fees, so you know
-              exactly what to expect.
-            </li>
-            <li>
-              <span className="font-bold">Convenient Service:</span> We offer
-              flexible scheduling options, including same-day and emergency
-              services, to fit your busy lifestyle.
-            </li>
-            <li>
-              <span className="font-bold">
-                Customer Satisfaction Guarantee:
-              </span>{" "}
-              We back our work with a warranty on all repairs, ensuring peace of
-              mind with every service.
-            </li>
-            <li>
-              <span className="font-bold">Responsive Support:</span> Our
-              friendly customer service team is always ready to assist with any
-              questions or concerns you may have.
-            </li>
-          </ul>
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mb-12">
+          {features.map((feature, index) => (
+            <FeatureCard key={index} {...feature} />
+          ))}
+        </div>
+
         <CallAndWhatsappButton company={company} className="py-5" />
       </div>
     </section>

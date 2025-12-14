@@ -21,7 +21,7 @@ const ServicesDropdown = ({company = companyName}) => {
       <DropdownMenuContent>
         {getData(company).map((service) => (
           <DropdownMenuItem key={service.slug}>
-            <Link href={`#${service.slug}`}>{service.title}</Link>
+            <Link href={`/services/${service.slug}`}>{service.title}</Link>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

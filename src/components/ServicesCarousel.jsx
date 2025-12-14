@@ -48,6 +48,7 @@ const ServicesCarousel = ({ company = companyName }) => {
               imgUrl={service.imgUrl}
               title={service.title}
               desc={service.description}
+              slug={service.slug}
               company={company}
             />
           </CarouselItem>

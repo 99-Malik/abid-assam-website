@@ -1,7 +1,7 @@
 
-export const companyName = "Appliance Repairs AE";
+export const companyName = "Instant Repairs UAE";
 
-export const phoneNumber = "+971567306195";
+export const phoneNumber = "+971527520038";
 
 export const sendMessage = () => {
   const message = "Hello, I want your repair services";
@@ -19,9 +19,9 @@ export const getData = (company) => {
   const allData = [
     {
       title: "Dishwasher Repair",
-      imgUrl: "/static/dishwasher.jpeg",
+      imgUrl: "/static/dishwasher-premium.png",
       slug: "dishwasher-repair",
-      description: `At ${company}, we specialize in providing a high-quality dishwasher repair services. Our expert technicians are trained to diagnose and resolve a wide range of dishwasher issues, ensuring your appliance operates efficiently and effectively.`,
+      description: `Experience spotless clean with our premium dishwasher repair. ${company} experts restore efficiency so you can reclaim your time. Don't let a breakdown disrupt your kitchen flow.`,
       commonProblems: [
         "Dishwasher not starting",
         "Water not draining properly",
@@ -37,9 +37,9 @@ export const getData = (company) => {
     },
     {
       title: "Dryer Repair",
-      imgUrl: "/static/dryer.jpeg",
+      imgUrl: "/static/dryer-premium.png",
       slug: "dryer-repair",
-      description: `At ${company}, we offer expert dryer repair services to ensure your appliance functions properly. Our trained technicians can address a variety of dryer issues, helping you get back to your laundry routine quickly.`,
+      description: `Don't let damp clothes ruin your day. Our master technicians provide rapid, reliable dryer repairs for ${company} appliances. Efficient drying, every time.`,
       commonProblems: [
         "Dryer not starting",
         "Clothes not drying completely",
@@ -56,8 +56,8 @@ export const getData = (company) => {
     {
       title: "Washing Machine Repair",
       slug: "washing-machine-repair",
-      imgUrl: "/static/washing.jpeg",
-      description: `At ${company}, we provide reliable washing machine repair services. Our experienced technicians can quickly diagnose and resolve various washing machine problems, ensuring your laundry is done efficiently.`,
+      imgUrl: "/static/washing-machine-premium.png",
+      description: `Keep your laundry routine spinning smoothly. We deliver top-tier diagnosis and repair for ${company} washing machines. Silence the noise and stop the leaks today.`,
       commonProblems: [
         "Machine not turning on",
         "Water not filling",
@@ -82,44 +82,44 @@ export const getData = (company) => {
           : "tv-repair",
       imgUrl:
         company === "Bosch" || company === "Siemens" || company === companyName
-          ? "/static/stove.jpeg"
-          : "/static/tv.jpeg",
+          ? "/static/stove-premium.png"
+          : "/tv-repair.webp",
       description:
         company === "Bosch" || company === "Siemens" || company === companyName
-          ? `At ${company}, we deliver quality stove and cooker repair services. Our skilled technicians are adept at diagnosing and fixing a range of issues, ensuring your cooking appliance operates safely and effectively.`
+          ? `Cook with confidence again. Our specialized ${company} stove handling ensures blue flames and precise temperatures for your culinary creations.`
           : `At ${company}, we provide reliable TV repair services. Our skilled technicians can troubleshoot and resolve various television issues, ensuring you enjoy your favorite shows without disruption.`,
       commonProblems:
         company === "Bosch" || company === "Siemens" || company === companyName
           ? [
-              "Burners not lighting",
-              "Uneven heating",
-              "Oven not reaching temperature",
-              "Self-cleaning cycle issues",
-              "Control panel problems",
-              "Gas leaks",
-              "Electric ignition failure",
-              "Burner clicking noises",
-              "Oven door not closing properly",
-              "Error codes on display",
-            ]
+            "Burners not lighting",
+            "Uneven heating",
+            "Oven not reaching temperature",
+            "Self-cleaning cycle issues",
+            "Control panel problems",
+            "Gas leaks",
+            "Electric ignition failure",
+            "Burner clicking noises",
+            "Oven door not closing properly",
+            "Error codes on display",
+          ]
           : [
-              "TV not turning on",
-              "Screen flickering",
-              "No sound",
-              "Picture issues",
-              "Remote control problems",
-              "HDMI connection issues",
-              "Software glitches",
-              "Color distortion",
-              "Overheating",
-              "Input selection problems",
-            ],
+            "TV not turning on",
+            "Screen flickering",
+            "No sound",
+            "Picture issues",
+            "Remote control problems",
+            "HDMI connection issues",
+            "Software glitches",
+            "Color distortion",
+            "Overheating",
+            "Input selection problems",
+          ],
     },
     {
       title: "Oven Repair",
       slug: "oven-repair",
-      imgUrl: "/static/oven.jpeg",
-      description: `At ${company}, we specialize in oven repair services to keep your cooking appliances in top shape. Our technicians are trained to handle various oven issues, ensuring you can cook your meals without interruption.`,
+      imgUrl: "/static/oven-premium.png",
+      description: `Restore the heart of your kitchen. Professional ${company} oven repairs that guarantee perfect roasts and bakes. Safe, fast, and certified service.`,
       commonProblems: [
         "Oven not heating",
         "Temperature issues",
@@ -136,8 +136,8 @@ export const getData = (company) => {
     {
       title: "Fridge Repair",
       slug: "fridge-repair",
-      imgUrl: "/static/fridge.jpeg",
-      description: `At ${company}, we offer comprehensive fridge repair services. Our experienced technicians can diagnose and fix a variety of refrigerator issues, ensuring your food stays fresh and safe.`,
+      imgUrl: "/static/fridge-premium.png",
+      description: `Protect your groceries with our urgent fridge repair. We fix cooling issues and leaks in ${company} refrigerators with precision to keep freshness locked in.`,
       commonProblems: [
         "Fridge not cooling",
         "Excessive noise",
@@ -155,7 +155,7 @@ export const getData = (company) => {
   const tvRepair = company === companyName && {
     title: "TV Repair",
     slug: "tv-repair",
-    imgUrl: "/static/tv.jpeg",
+    imgUrl: "/tv-repair.webp",
     description: `At ${company}, we provide reliable TV repair services. Our skilled technicians can troubleshoot and resolve various television issues, ensuring you enjoy your favorite shows without disruption.`,
     commonProblems: [
       "TV not turning on",
@@ -170,7 +170,7 @@ export const getData = (company) => {
       "Input selection problems",
     ],
   };
-  
+
   return company === companyName ? allData.concat(tvRepair) : allData;
-  
+
 };

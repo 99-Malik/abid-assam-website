@@ -6,76 +6,46 @@ import { companyName, dialPhone, sendMessage } from "@/libs/data";
 const CallAndWhatsappButton = ({ className, company = companyName }) => {
   return (
     <div className={cn(className, "flex items-center gap-3")}>
-      {/* Call Us Button */}
+      {/* Call Us Button - Keep background same, white text */}
       <button
         onClick={dialPhone}
         className={cn(
           "group flex items-center gap-2 px-4 rounded-sm text-sm py-2",
           company === "Lg"
-            ? "bg-lgPrimary border-white text-white "
+            ? "bg-lgPrimary border-lgPrimary text-white"
             : company === "Samsung"
             ? "bg-samsungPrimary border-samsungPrimary text-white"
             : company === "Bosch"
             ? "bg-boschPrimary border-boschPrimary text-white"
             : company === "Siemens"
             ? "bg-siemensPrimary border-siemensPrimary text-white"
-            : "bg-primary border-primary text-black",
-          "hover:border-black/10"
+            : "bg-primary border-primary text-white",
+          "hover:opacity-90 transition-opacity"
         )}
       >
-        {phoneSvg}
+        <span className="text-white">{phoneSvg}</span>
         <div className="relative">
-          <span>Call us</span>
+          <span className="text-white font-medium">Call us</span>
           <span
-            className={cn(
-              "w-0 absolute bottom-0.5 left-0 transition-all ease-in duration-200 group-hover:w-full h-[1px]",
-              company === "Lg"
-                ? "bg-white"
-                : company === "Samsung"
-                ? "bg-white"
-                : company === "Bosch"
-                ? "bg-white"
-                : company === "Siemens"
-                ? "bg-white"
-                : "bg-black"
-            )}
+            className="w-0 absolute bottom-0.5 left-0 transition-all ease-in duration-200 group-hover:w-full h-[1px] bg-white"
           ></span>
         </div>
       </button>
 
-      {/* Whatsapp Button */}
+      {/* Whatsapp Button - White background, black text */}
       <button
         onClick={sendMessage}
         className={cn(
           "group flex items-center gap-2 px-4 rounded-sm text-sm py-2",
-          company === "Lg"
-            ? "bg-lgSecondary border-lgSecondary text-white"
-            : company === "Samsung"
-            ? "bg-samsungSecondary border-samsungSecondary text-black"
-            : company === "Bosch"
-            ? "bg-boschSecondary border-boschSecondary text-white"
-            : company === "Siemens"
-            ? "bg-siemensSecondary border-siemensSecondary text-black"
-            : "bg-secondary border-secondary text-black",
-          "hover:border-black/10"
+          "bg-white border-white text-black",
+          "hover:bg-gray-50 hover:border-gray-200 transition-colors"
         )}
       >
-        {whatsappSvg}
+        <span className="text-black">{whatsappSvg}</span>
         <div className="relative">
-          <span>Whatsapp</span>
+          <span className="text-black font-medium">Whatsapp</span>
           <span
-            className={cn(
-              "w-0 absolute bottom-0.5 left-0 transition-all ease-in duration-200 group-hover:w-full h-[1px]",
-              company === "Lg"
-                ? "bg-white"
-                : company === "Samsung"
-                ? "bg-black"
-                : company === "Bosch"
-                ? "bg-white"
-                : company === "Siemens"
-                ? "bg-black"
-                : "bg-black"
-            )}
+            className="w-0 absolute bottom-0.5 left-0 transition-all ease-in duration-200 group-hover:w-full h-[1px] bg-black"
           ></span>
         </div>
       </button>
