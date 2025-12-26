@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sheet";
 
 import { companyName, getData } from "@/libs/data";
+import { getSolarData } from "@/libs/solardata";
 import { Menu, ChevronDown } from "lucide-react";
 import NavLink from "./NavLink";
 import { cn } from "@/lib/utils";
@@ -57,6 +58,16 @@ const Sidebar = ({ company = companyName }) => {
               >
                 {getData(company).map((service, index) => (
                   <SheetClose asChild key={index}>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="text-muted-foreground hover:text-white py-2 text-base block"
+                    >
+                      {service.title}
+                    </Link>
+                  </SheetClose>
+                ))}
+                {getSolarData(company).map((service, index) => (
+                  <SheetClose asChild key={`solar-${index}`}>
                     <Link
                       href={`/services/${service.slug}`}
                       className="text-muted-foreground hover:text-white py-2 text-base block"

@@ -26,14 +26,15 @@ const ServiceDetails = ({ company = companyName }) => {
       <div className="flex flex-col items-center justify-center w-full max-w-7xl px-5 mb-16 gap-8">
         <div className="flex flex-col items-center text-center gap-4">
           <span className="text-primary font-bold uppercase tracking-wider text-sm border border-primary/20 px-3 py-1 rounded-full bg-primary/10">
-            Comprehensive Care
+            {company === "Water-heater" ? "Solar Solutions" : "Comprehensive Care"}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white">
-            Detailed Service Information
+            {company === "Water-heater" ? "Common Solar Issues" : "Detailed Service Information"}
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
-            We offer a comprehensive range of home appliance repair services tailored to meet your specific needs.
-            From rigorous diagnostics to premium repairs, we ensure everything is handled with care.
+            {company === "Water-heater"
+              ? "From leaking pipes to faulty sensors, we cover all aspects of solar water heater repair and maintenance."
+              : "We offer a comprehensive range of home appliance repair services tailored to meet your specific needs. From rigorous diagnostics to premium repairs, we ensure everything is handled with care."}
           </p>
         </div>
       </div>

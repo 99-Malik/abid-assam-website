@@ -8,12 +8,12 @@ import { getSolarData } from "@/libs/solardata";
 import { getAcData } from "@/libs/getAcData";
 import CallAndWhatsappButton from "../buttons/CallAndWhatsappButton";
 import { usePathname } from "next/navigation";
-import { 
-  Wrench, 
-  CheckCircle2, 
-  Clock, 
-  Shield, 
-  Star, 
+import {
+  Wrench,
+  CheckCircle2,
+  Clock,
+  Shield,
+  Star,
   AlertCircle,
   Phone,
   MessageCircle,
@@ -23,17 +23,12 @@ import {
 
 const ServiceDetailPage = ({ slug, company = companyName }) => {
   const pathname = usePathname();
-  
+
   // Get the appropriate data based on route
-  const allServices = 
-    pathname?.includes("/water-heater")
-      ? getSolarData(company)
-      : pathname?.includes("/ac")
-        ? getAcData(company)
-        : getData(company);
-  
+  const allServices = [...getData(company), ...getSolarData(company), ...getAcData(company)];
+
   const service = allServices.find((s) => s.slug === slug);
-  
+
   if (!service) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -261,9 +256,40 @@ const ServiceDetailPage = ({ slug, company = companyName }) => {
         brands: ["Samsung", "LG", "Sony", "Panasonic", "TCL", "Hisense", "Vizio"],
         warranty: "90-day warranty on all repairs",
         responseTime: "Same-day service available"
+      },
+      "solar-water-heater-repair": {
+        overview: "Specialized solar water heater repair services to ensure your renewable energy system operates at peak efficiency. We handle all types of solar heating systems.",
+        keyFeatures: [
+          "Solar collector repair",
+          "Circulation pump replacement",
+          "Controller and sensor diagnostics",
+          "Storage tank maintenance",
+          "Leak detection and repair",
+          "Glycol fluid replacement",
+          "Improper installation correction",
+          "Valve and fitting repair"
+        ],
+        benefits: [
+          "Maximize energy savings",
+          "Ensure consistent hot water",
+          "Extend system lifespan",
+          "Prevent water damage",
+          "Eco-friendly performance"
+        ],
+        process: [
+          "System performance analysis",
+          "Collector and tank inspection",
+          "Pressure and flow testing",
+          "Component repair/replacement",
+          "Fluid level check",
+          "Final system calibration"
+        ],
+        brands: ["All Major Solar Brands", "Generic Systems", "Custom Installations"],
+        warranty: "90-day warranty on all repairs",
+        responseTime: "Same-day service available"
       }
     };
-    
+
     return contentMap[serviceSlug] || {
       overview: `${service.title} services with professional expertise and industry-standard solutions.`,
       keyFeatures: ["Professional diagnosis", "Expert repair", "Quality parts", "Warranty included"],

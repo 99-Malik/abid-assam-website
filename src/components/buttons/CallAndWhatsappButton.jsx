@@ -10,16 +10,16 @@ const CallAndWhatsappButton = ({ className, company = companyName }) => {
       <button
         onClick={dialPhone}
         className={cn(
-          "group flex items-center gap-2 px-4 rounded-sm text-sm py-2",
+          "group flex items-center gap-2 px-4 rounded-sm text-sm py-2 whitespace-nowrap",
           company === "Lg"
             ? "bg-lgPrimary border-lgPrimary text-white"
             : company === "Samsung"
-            ? "bg-samsungPrimary border-samsungPrimary text-white"
-            : company === "Bosch"
-            ? "bg-boschPrimary border-boschPrimary text-white"
-            : company === "Siemens"
-            ? "bg-siemensPrimary border-siemensPrimary text-white"
-            : "bg-primary border-primary text-white",
+              ? "bg-samsungPrimary border-samsungPrimary text-white"
+              : company === "Bosch"
+                ? "bg-boschPrimary border-boschPrimary text-white"
+                : company === "Siemens"
+                  ? "bg-siemensPrimary border-siemensPrimary text-white"
+                  : "bg-primary border-primary text-white",
           "hover:opacity-90 transition-opacity"
         )}
       >
@@ -36,7 +36,7 @@ const CallAndWhatsappButton = ({ className, company = companyName }) => {
       <button
         onClick={sendMessage}
         className={cn(
-          "group flex items-center gap-2 px-4 rounded-sm text-sm py-2",
+          "group flex items-center gap-2 px-4 rounded-sm text-sm py-2 whitespace-nowrap",
           "bg-white border-white text-black",
           "hover:bg-gray-50 hover:border-gray-200 transition-colors"
         )}

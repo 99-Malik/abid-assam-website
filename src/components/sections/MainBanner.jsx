@@ -26,7 +26,7 @@ function MainBanner({ company = "Appliance Service Center UAE" }) {
       <div className="absolute inset-0 w-full h-full">
         {imageLoaded ? (
           <Image
-            src={bannerImage}
+            src={company === "Water-heater" ? "/static/solar-1.jpg" : bannerImage}
             alt="Appliance Repair Service"
             fill
             priority
@@ -58,7 +58,7 @@ function MainBanner({ company = "Appliance Service Center UAE" }) {
             className="inline-flex items-center gap-2 py-2 px-5 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium mb-6 backdrop-blur-md shadow-lg"
           >
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            #1 Premium Appliance Repair Service
+            {company === "Water-heater" ? "#1 Solar Water Heater Service" : "#1 Premium Appliance Repair Service"}
           </motion.div>
 
           {/* Main Heading */}
@@ -68,10 +68,21 @@ function MainBanner({ company = "Appliance Service Center UAE" }) {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-white tracking-tight leading-tight"
           >
-            Expert Care for Your{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
-              Premium Appliances
-            </span>
+            {company === "Water-heater" ? (
+              <>
+                Expert Repair for Your{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400">
+                  Solar Water Heater
+                </span>
+              </>
+            ) : (
+              <>
+                Expert Care for Your{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
+                  Premium Appliances
+                </span>
+              </>
+            )}
           </motion.h1>
 
           {/* Description */}
@@ -81,9 +92,15 @@ function MainBanner({ company = "Appliance Service Center UAE" }) {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            Specialized repair for Bosch, Siemens, Samsung, LG.
-            <br className="hidden sm:block" />
-            We restore the <span className="text-white font-semibold">soul</span> of your home with certified expertise.
+            {company === "Water-heater" ? (
+              "Specialized repair for all solar water heater brands. We ensure consistent hot water efficiently."
+            ) : (
+              <>
+                Specialized repair for Bosch, Siemens, Samsung, LG.
+                <br className="hidden sm:block" />
+                We restore the <span className="text-white font-semibold">soul</span> of your home with certified expertise.
+              </>
+            )}
           </motion.p>
 
           {/* CTA Buttons */}

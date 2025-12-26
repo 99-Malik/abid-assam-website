@@ -19,15 +19,17 @@ const OurServices = ({ company = companyName }) => {
       <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-7xl px-5 gap-12">
         <div className="flex flex-col items-center gap-4 text-center">
           <span className="text-primary font-bold uppercase tracking-wider text-sm border border-primary/20 px-3 py-1 rounded-full bg-primary/10">
-            What We Do
+            {company === "Water-heater" ? "Solar Expertise" : "What We Do"}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-            Our Premium Services
+            {company === "Water-heater" ? "Solar Water Heater Services" : "Our Premium Services"}
           </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-transparent via-primary to-transparent" />
           <p className="max-w-2xl text-muted-foreground text-lg">
-            We specialize in diagnosing and repairing a wide range of household appliances.
-            Experience the difference with our expert care.
+            {company === "Water-heater"
+              ? "We specialize in diagnosing, repairing, and maintaining solar water heating systems for maximum efficiency."
+              : "We specialize in diagnosing and repairing a wide range of household appliances. Experience the difference with our expert care."
+            }
           </p>
         </div>
 

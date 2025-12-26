@@ -58,7 +58,10 @@ const AboutSection = ({ company = companyName }) => {
             <div
               className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10"
               style={{
-                backgroundImage: "url(/static/solar-7.jpg)",
+                backgroundImage: `url(${pathname === "/companies/water-heater"
+                    ? "/static/solar-7.jpg"
+                    : "/static/about.jpg"
+                  })`,
                 backgroundSize: "cover",
                 backgroundPosition: "center"
               }}

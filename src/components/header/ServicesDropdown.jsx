@@ -7,10 +7,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { allServices, companyName, getData } from "@/libs/data";
+import { getSolarData } from "@/libs/solardata";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const ServicesDropdown = ({company = companyName}) => {
+const ServicesDropdown = ({ company = companyName }) => {
   const router = useRouter();
   return (
     <DropdownMenu>
@@ -20,6 +21,11 @@ const ServicesDropdown = ({company = companyName}) => {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         {getData(company).map((service) => (
+          <DropdownMenuItem key={service.slug}>
+            <Link href={`/services/${service.slug}`}>{service.title}</Link>
+          </DropdownMenuItem>
+        ))}
+        {getSolarData(company).map((service) => (
           <DropdownMenuItem key={service.slug}>
             <Link href={`/services/${service.slug}`}>{service.title}</Link>
           </DropdownMenuItem>
