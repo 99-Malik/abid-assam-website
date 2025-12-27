@@ -18,7 +18,7 @@ export const getSolarData = (company) => {
     const solarData = [
         {
             title: "Solar Water Heater Repair",
-            imgUrl: "/static/solar-1.jpg",
+            imgUrl: "/static/solar-installation-fix.png",
             slug: "solar-water-heater-repair",
             description: `At ${company}, we provide expert repair services for solar water heaters. Our technicians can diagnose and resolve a wide range of solar water heater issues efficiently.`,
             commonProblems: [
@@ -37,17 +37,17 @@ export const getSolarData = (company) => {
         },
         {
             title: "Leaking Pipes and Connections",
-            imgUrl: "/static/solar-3.webp",
+            imgUrl: "/static/solar-leak-repair.png",
             slug: "leaking-pipes-connections",
             description: `Leaking pipes and connections in solar water heaters can disrupt their efficiency. Our skilled technicians can identify and resolve these issues effectively.`,
             commonProblems: [
                 "No hot water production",
-                "Insufficient water heating",    
+                "Insufficient water heating",
                 "Leaking pipes or connections",
                 "Blocked or clogged pipes",
                 "Damaged solar panels",
                 "Faulty temperature sensors",
-                "Airlocks in the system",            
+                "Airlocks in the system",
                 "Pressure valve issues",
                 "Low water pressure",
                 "Electrical component failures",
@@ -59,7 +59,7 @@ export const getSolarData = (company) => {
         },
         {
             title: "Faulty Temperature Sensors",
-            imgUrl: "/static/solar-4.jpg",
+            imgUrl: "/static/solar-sensor-repair.png",
             slug: "faulty-temperature-sensors",
             description: `Faulty temperature sensors in solar water heaters can cause inconsistent heating. Our experts can repair or replace them for optimal performance.`,
             commonProblems: [
@@ -83,7 +83,7 @@ export const getSolarData = (company) => {
         },
         {
             title: "Improper Installation Issues",
-            imgUrl: "/static/solar-5.jpg",
+            imgUrl: "/static/solar-maintenance.png",
             slug: "improper-installation-issues",
             description: `Improper installation of solar water heaters can lead to operational inefficiencies. Our team ensures accurate diagnosis and correction of such issues.`,
             commonProblems: [
@@ -102,7 +102,7 @@ export const getSolarData = (company) => {
         },
         {
             title: "Circulation Pump Not Working",
-            imgUrl: "/static/solar-6.jpg",
+            imgUrl: "/static/solar-pump-repair.png",
             slug: "circulation-pump-not-working",
             description: `Issues with circulation pumps in solar water heaters can impact water heating. Our technicians provide comprehensive diagnostics and repairs.`,
             commonProblems: [
@@ -121,7 +121,7 @@ export const getSolarData = (company) => {
                 "Water temperature fluctuations",
             ],
         },
-       
+
     ];
 
     return solarData;

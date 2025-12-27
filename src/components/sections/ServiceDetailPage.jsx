@@ -8,6 +8,8 @@ import { getSolarData } from "@/libs/solardata";
 import { getAcData } from "@/libs/getAcData";
 import CallAndWhatsappButton from "../buttons/CallAndWhatsappButton";
 import { usePathname } from "next/navigation";
+import ServiceCard from "../ServiceCard";
+import { ImagesSlider } from "./ImagesSlider";
 import {
   Wrench,
   CheckCircle2,
@@ -18,6 +20,10 @@ import {
   Phone,
   MessageCircle,
   ArrowRight,
+  Sun,
+  Leaf,
+  Droplets,
+  Zap,
   Check
 } from "lucide-react";
 
@@ -358,6 +364,175 @@ const ServiceDetailPage = ({ slug, company = companyName }) => {
           </div>
         </div>
       </section>
+
+      {/* Solar Water Heater Specific Sections */}
+      {slug === "solar-water-heater-repair" && (
+        <>
+          {/* Images Slider Section */}
+          <section className="py-12 bg-black/10">
+            <div className="container mx-auto max-w-7xl px-5">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-3xl md:text-4xl font-bold text-white text-center mb-10"
+              >
+                Our Solar Repair Projects
+              </motion.h2>
+              <ImagesSlider
+                images={[
+                  "/static/solar-leak-repair.png",
+                  "/static/solar-sensor-repair.png",
+                  "/static/solar-installation-fix.png",
+                  "/static/solar-pump-repair.png",
+                  "/static/solar-maintenance.png"
+                ]}
+              />
+            </div>
+          </section>
+
+          {/* Why Choose Solar Section */}
+          <section className="py-20 bg-gradient-to-br from-orange-500/10 via-background to-background">
+            <div className="container mx-auto max-w-7xl px-5">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center mb-16"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  Why Maintain Your Solar System?
+                </h2>
+                <p className="text-gray-400 max-w-2xl mx-auto">
+                  Regular maintenance ensures maximum efficiency and longevity of your investment
+                </p>
+              </motion.div>
+
+              <div className="grid md:grid-cols-4 gap-6">
+                <div className="bg-card border border-white/10 rounded-xl p-6 text-center hover:border-orange-500/50 transition-all">
+                  <div className="w-16 h-16 rounded-full bg-orange-500/20 flex items-center justify-center mx-auto mb-4 text-orange-400">
+                    <Sun className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-white font-bold mb-2">Max Efficiency</h3>
+                  <p className="text-gray-400 text-sm">Ensure your panels absorb maximum sunlight</p>
+                </div>
+                <div className="bg-card border border-white/10 rounded-xl p-6 text-center hover:border-green-500/50 transition-all">
+                  <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-4 text-green-400">
+                    <Leaf className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-white font-bold mb-2">Eco-Friendly</h3>
+                  <p className="text-gray-400 text-sm">Reduce your carbon footprint effectively</p>
+                </div>
+                <div className="bg-card border border-white/10 rounded-xl p-6 text-center hover:border-blue-500/50 transition-all">
+                  <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-4 text-blue-400">
+                    <Droplets className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-white font-bold mb-2">Clean Water</h3>
+                  <p className="text-gray-400 text-sm">Prevent rust and bacteria in your hot water</p>
+                </div>
+                <div className="bg-card border border-white/10 rounded-xl p-6 text-center hover:border-yellow-500/50 transition-all">
+                  <div className="w-16 h-16 rounded-full bg-yellow-500/20 flex items-center justify-center mx-auto mb-4 text-yellow-400">
+                    <Zap className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-white font-bold mb-2">Energy Savings</h3>
+                  <p className="text-gray-400 text-sm">Lower your electricity bills significantly</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Maintenance Checklist Section */}
+          <section className="py-20 bg-card/30">
+            <div className="container mx-auto max-w-7xl px-5">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                  <Image
+                    src="/static/solar-maintenance.png"
+                    alt="Solar Maintenance Checklist"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-8 left-8 right-8">
+                    <h3 className="text-2xl font-bold text-white mb-2">Professional Maintenance</h3>
+                    <p className="text-gray-300">Our comprehensive checkpoint system ensures nothing is missed.</p>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                    Our Maintenance Checklist
+                  </h2>
+                  <p className="text-gray-400 mb-8">
+                    We follow a strict protocol to ensure your solar water heater functions perfectly year-round.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {[
+                      "Check Glycol Fluid Levels",
+                      "Inspect Pressure Relief Valve",
+                      "Clean Collector Panels",
+                      "Test Temperature Sensors",
+                      "Check Circulation Pump",
+                      "Inspect Pipe Insulation",
+                      "Tighten All Connections",
+                      "Flush Sediment from Tank",
+                      "Check Expansion Tank",
+                      "Verify Control Settings"
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 bg-background/50 p-4 rounded-lg border border-white/5">
+                        <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center shrink-0">
+                          <Check className="w-3 h-3 text-green-400" />
+                        </div>
+                        <span className="text-gray-200 text-sm font-medium">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-8">
+                    <CallAndWhatsappButton company={company} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Specialized Solar Services */}
+          <section className="py-20">
+            <div className="container mx-auto max-w-7xl px-5">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center mb-12"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  Specialized Solar Services
+                </h2>
+                <p className="text-gray-400 max-w-2xl mx-auto">
+                  Targeted solutions for specific solar water heater problems
+                </p>
+              </motion.div>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                {getSolarData(company)
+                  .filter(s => s.slug !== 'solar-water-heater-repair')
+                  .map((subService) => (
+                    <ServiceCard
+                      key={subService.slug}
+                      title={subService.title}
+                      desc={subService.description}
+                      imgUrl={subService.imgUrl}
+                      slug={subService.slug}
+                      company={company}
+                    />
+                  ))
+                }
+              </div>
+            </div>
+          </section>
+        </>
+      )}
 
       {/* Common Problems Section */}
       <section className="py-20 bg-card/50">
