@@ -28,20 +28,14 @@ const ServicesCarousel = ({ company = companyName }) => {
 
   return (
     <Carousel
-      opts={{
-        loop: true,
-      }}
-      plugins={[
-        Autoplay({
-          delay: 3000,
-        }),
-      ]}
-      className="max-w-[80vw] w-full py-10"
+      opts={{ loop: true }}
+      plugins={[Autoplay({ delay: 3000, stopOnInteraction: true })]}
+      className="max-w-[90vw] w-full"
     >
-      <CarouselContent>
+      <CarouselContent className="py-4">
         {services.map((service) => (
           <CarouselItem
-            className="md:basis-1/2 lg:basis-1/3"
+            className="md:basis-1/2 lg:basis-1/3 pl-4"
             key={service.slug}
           >
             <ServiceCard
@@ -54,6 +48,8 @@ const ServicesCarousel = ({ company = companyName }) => {
           </CarouselItem>
         ))}
       </CarouselContent>
+      <CarouselPrevious className="hidden md:flex" />
+      <CarouselNext className="hidden md:flex" />
     </Carousel>
   );
 };

@@ -6,9 +6,13 @@ import OneService from "./OneService";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { getAcData } from "@/libs/getAcData"; // Import solar data
+import { getBrandTheme, getBrandDisplayName } from "@/libs/brandTheme";
 
 const ServiceDetails = ({ company = companyName }) => {
   const pathname = usePathname();
+  const theme = getBrandTheme(company);
+  const isBrand = ["lg", "siemens", "samsung", "bosch"].includes(company.toLowerCase());
+  const name = getBrandDisplayName(company);
 
   // Determine which data to use based on the route
   const services =
@@ -20,21 +24,34 @@ const ServiceDetails = ({ company = companyName }) => {
 
   return (
     <div
-      className="flex flex-col items-center justify-center w-full py-20 bg-background"
+      className={cn("flex flex-col items-center justify-center w-full", isBrand ? `${theme.sectionBg}` : "bg-background py-20")}
       id="service-details"
     >
-      <div className="flex flex-col items-center justify-center w-full max-w-7xl px-5 mb-16 gap-8">
+      <div className={cn("flex flex-col items-center justify-center w-full max-w-7xl px-5 gap-8", isBrand ? "mb-10" : "mb-16")}>
         <div className="flex flex-col items-center text-center gap-4">
-          <span className="text-primary font-bold uppercase tracking-wider text-sm border border-primary/20 px-3 py-1 rounded-full bg-primary/10">
-            {company === "Water-heater" ? "Solar Solutions" : "Comprehensive Care"}
+          <span
+            className="font-bold uppercase tracking-wider text-sm px-3 py-1 rounded-full border"
+            style={isBrand
+              ? { backgroundColor: theme.primary, color: "#fff", borderColor: theme.primary }
+              : {}}
+          >
+            {company === "Water-heater" ? "Solar Solutions" : isBrand ? `${name} Services` : "Comprehensive Care"}
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">
-            {company === "Water-heater" ? "Common Solar Issues" : "Detailed Service Information"}
+          <h2 className={cn("text-3xl md:text-5xl font-bold", isBrand ? theme.headingText : "text-white")}>
+            {company === "Water-heater"
+              ? "Common Solar Issues"
+              : isBrand
+                ? `Detailed ${name} Repair Information`
+                : "Detailed Service Information"
+            }
           </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
+          <p className={cn("max-w-3xl mx-auto text-lg", isBrand ? theme.bodyText : "text-muted-foreground")}>
             {company === "Water-heater"
               ? "From leaking pipes to faulty sensors, we cover all aspects of solar water heater repair and maintenance."
-              : "We offer a comprehensive range of home appliance repair services tailored to meet your specific needs. From rigorous diagnostics to premium repairs, we ensure everything is handled with care."}
+              : isBrand
+                ? `From washing machines to ovens, our ${name}-certified technicians cover every appliance with precision, genuine parts, and comprehensive repair expertise.`
+                : "We offer a comprehensive range of home appliance repair services tailored to meet your specific needs. From rigorous diagnostics to premium repairs, we ensure everything is handled with care."
+            }
           </p>
         </div>
       </div>

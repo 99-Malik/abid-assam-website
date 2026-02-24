@@ -52,6 +52,19 @@
   }
 }
 
+/* ── Brand page wrappers ─────────────────────────────────────────────────── */
+/* Cover the dark body gradient entirely so brand pages appear white.
+   min-h-screen ensures the wrapper fills the viewport.                      */
+.brand-lg,
+.brand-siemens,
+.brand-samsung,
+.brand-bosch {
+  background-image: none !important;
+  background-color: #ffffff !important;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
 @layer utilities {
   .glass {
     @apply bg-white/5 backdrop-blur-lg border border-white/10;

@@ -2,28 +2,45 @@ import { companyName } from "@/libs/data";
 import CallAndWhatsappButton from "../buttons/CallAndWhatsappButton";
 import { cn } from "@/lib/utils";
 import { ShieldCheck, Award, Clock, DollarSign, Wrench, Smile } from "lucide-react";
+import { getBrandTheme, getBrandDisplayName } from "@/libs/brandTheme";
 
-const FeatureCard = ({ icon: Icon, title, description }) => (
-  <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-white/5 hover:border-primary/20 hover:bg-white/5 transition-all duration-300">
-    <div className="p-4 rounded-full bg-primary/10 text-primary mb-4">
-      <Icon size={32} />
+const FeatureCard = ({ icon: Icon, title, description, theme, isBrand }) => (
+  <div className={cn(
+    "flex flex-col items-center text-center p-6 rounded-2xl border transition-all duration-300",
+    isBrand
+      ? `${theme.cardBg} ${theme.cardBorder} ${theme.cardHover}`
+      : "bg-card border-white/5 hover:border-primary/20 hover:bg-white/5"
+  )}>
+    <div
+      className={cn("p-4 rounded-full mb-4", isBrand ? theme.iconBg : "bg-primary/10")}
+      style={isBrand ? { color: theme.primary } : {}}
+    >
+      <Icon size={32} color={isBrand ? theme.primary : undefined} />
     </div>
-    <h3 className="text-lg font-bold text-white mb-2">{title}</h3>
-    <p className="text-sm text-muted-foreground">{description}</p>
+    <h3 className={cn("text-lg font-bold mb-2", isBrand ? theme.headingText : "text-white")}>{title}</h3>
+    <p className={cn("text-sm", isBrand ? theme.bodyText : "text-muted-foreground")}>{description}</p>
   </div>
 );
 
 const WhyChooseUs = ({ company = companyName }) => {
+  const theme = getBrandTheme(company);
+  const isBrand = ["lg", "siemens", "samsung", "bosch"].includes(company.toLowerCase());
+  const name = getBrandDisplayName(company);
+
   const features = [
     {
       icon: Wrench,
       title: "Expert Technicians",
-      description: "Our certified technicians use the latest techniques for efficient and reliable service."
+      description: isBrand
+        ? `Factory-certified ${name} technicians using manufacturer-approved techniques for precise, reliable repairs.`
+        : "Our certified technicians use the latest techniques for efficient and reliable service."
     },
     {
       icon: Award,
-      title: "Quality Repairs",
-      description: "We use only top-quality parts and tools to restore your appliances to optimal performance."
+      title: "Genuine Parts",
+      description: isBrand
+        ? `We use only original ${name} parts to ensure your appliance performs exactly as designed.`
+        : "We use only top-quality parts and tools to restore your appliances to optimal performance."
     },
     {
       icon: DollarSign,
@@ -32,13 +49,15 @@ const WhyChooseUs = ({ company = companyName }) => {
     },
     {
       icon: Clock,
-      title: "Convenient Service",
+      title: "Same-Day Service",
       description: "Flexible scheduling, including same-day and emergency services to fit your busy lifestyle."
     },
     {
       icon: ShieldCheck,
-      title: "Satisfaction Guarantee",
-      description: "We back our work with a comprehensive warranty on all repairs for your peace of mind."
+      title: "Warranty Guaranteed",
+      description: isBrand
+        ? `All ${name} repairs come with a comprehensive service warranty for your complete peace of mind.`
+        : "We back our work with a comprehensive warranty on all repairs for your peace of mind."
     },
     {
       icon: Smile,
@@ -48,20 +67,31 @@ const WhyChooseUs = ({ company = companyName }) => {
   ];
 
   return (
-    <section id="why-us" className="flex justify-center w-full bg-black/20 py-24">
+    <section id="why-us" className={cn("flex justify-center w-full", isBrand ? `${theme.sectionBg} py-16` : "bg-black/20 py-24")}>
       <div className="flex w-full max-w-7xl px-5 flex-col items-center">
         <div className="text-center mb-16">
-          <span className="text-primary font-bold uppercase tracking-wider text-sm">Why Choose Us</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">The {company} Difference</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            We understand that choosing the right appliance repair service is crucial.
-            Here is why thousands of customers trust us.
+          <span
+            className="font-bold uppercase tracking-wider text-sm px-3 py-1 rounded-full border"
+            style={isBrand
+              ? { backgroundColor: theme.primary, color: "#fff", borderColor: theme.primary }
+              : {}}
+          >
+            Why Choose Us
+          </span>
+          <h2 className={cn("text-3xl md:text-5xl font-bold mt-2 mb-4", isBrand ? theme.headingText : "text-white")}>
+            The {name} Difference
+          </h2>
+          <p className={cn("max-w-2xl mx-auto text-lg", isBrand ? theme.bodyText : "text-muted-foreground")}>
+            {isBrand
+              ? `We understand that choosing the right ${name} repair service is crucial. Here is why thousands of customers across Dubai & UAE trust us.`
+              : "We understand that choosing the right appliance repair service is crucial. Here is why thousands of customers trust us."
+            }
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mb-12">
           {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} />
+            <FeatureCard key={index} {...feature} theme={theme} isBrand={isBrand} />
           ))}
         </div>
 

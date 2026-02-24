@@ -17,9 +17,30 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import Image from "next/image";
+import { getBrandTheme, getBrandDisplayName } from "@/libs/brandTheme";
+
+const brandLogos = {
+  lg:      { src: "/static/lg.svg",      width: 60,  height: 36, href: "/companies/lg"      },
+  siemens: { src: "/static/siemens.svg", width: 120, height: 36, href: "/companies/siemens" },
+  samsung: { src: "/static/samsung.svg", width: 110, height: 36, href: "/companies/samsung" },
+  bosch:   { src: "/static/bosch.svg",   width: 110, height: 36, href: "/companies/bosch"   },
+};
 
 const Sidebar = ({ company = companyName }) => {
   const [servicesDropdown, setServicesDropdown] = useState(false);
+  const key = company.toLowerCase();
+  const isBrand = ["lg", "siemens", "samsung", "bosch"].includes(key);
+  const theme = getBrandTheme(company);
+  const name = getBrandDisplayName(company);
+  const logo = brandLogos[key];
+
+  // On brand pages, all links stay within the brand page
+  const baseHref = isBrand ? `/companies/${key}` : "";
+  const homeHref = isBrand ? `/companies/${key}` : "/";
+  const aboutHref = `${baseHref}#about`;
+  const contactHref = `${baseHref}#contact`;
+  const serviceHref = (slug) => isBrand ? `${baseHref}#service-details` : `/services/${slug}`;
 
   return (
     <div className="md:hidden">
@@ -29,22 +50,38 @@ const Sidebar = ({ company = companyName }) => {
             <Menu className="w-6 h-6" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="bg-background/95 backdrop-blur-xl border-l border-white/10 text-white w-[300px] sm:w-[400px]">
+        <SheetContent side="right" className={cn("backdrop-blur-xl w-[300px] sm:w-[400px]", isBrand ? "bg-white border-l border-gray-200 text-gray-900" : "bg-background/95 border-l border-white/10 text-white")}>
           <SheetHeader>
-            <SheetTitle className="text-left text-2xl font-bold text-white py-4 border-b border-white/10">{company}</SheetTitle>
+            <SheetTitle className={cn(
+              "text-left py-4 border-b",
+              isBrand ? "border-white/20" : "border-white/10"
+            )}>
+              {isBrand && logo ? (
+                <Link href={homeHref}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={logo.src}
+                    alt={name}
+                    style={{ height: 36, width: "auto", objectFit: "contain" }}
+                  />
+                </Link>
+              ) : (
+                <span className="text-2xl font-bold text-white">{name}</span>
+              )}
+            </SheetTitle>
           </SheetHeader>
           <div className="flex flex-col gap-2 mt-8">
             <SheetClose asChild>
-              <Link href="/" className="text-lg font-medium hover:text-primary transition-colors py-2">Home</Link>
+              <Link href={homeHref} className={cn("text-lg font-medium transition-colors py-2", isBrand ? "text-gray-800 hover:text-gray-600" : "text-white hover:text-white/70")}>Home</Link>
             </SheetClose>
             <SheetClose asChild>
-              <Link href="/#about" className="text-lg font-medium hover:text-primary transition-colors py-2">About</Link>
+              <Link href={aboutHref} className={cn("text-lg font-medium transition-colors py-2", isBrand ? "text-gray-800 hover:text-gray-600" : "text-white hover:text-white/70")}>About</Link>
             </SheetClose>
 
             <div className="flex flex-col">
               <button
                 onClick={() => setServicesDropdown(!servicesDropdown)}
-                className="flex items-center justify-between text-lg font-medium hover:text-primary transition-colors py-2 group"
+                className={cn("flex items-center justify-between text-lg font-medium transition-colors py-2", isBrand ? "text-gray-800 hover:text-gray-600" : "text-white hover:text-white/70")}
               >
                 Services
                 <ChevronDown className={cn("w-5 h-5 transition-transform duration-200", servicesDropdown ? "rotate-180" : "rotate-0")} />
@@ -59,14 +96,14 @@ const Sidebar = ({ company = companyName }) => {
                 {getData(company).map((service, index) => (
                   <SheetClose asChild key={index}>
                     <Link
-                      href={`/services/${service.slug}`}
-                      className="text-muted-foreground hover:text-white py-2 text-base block"
+                      href={serviceHref(service.slug)}
+                      className={cn("py-2 text-base block transition-colors", isBrand ? "text-gray-500 hover:text-gray-800" : "text-muted-foreground hover:text-white")}
                     >
                       {service.title}
                     </Link>
                   </SheetClose>
                 ))}
-                {getSolarData(company).map((service, index) => (
+                {!isBrand && getSolarData(company).map((service, index) => (
                   <SheetClose asChild key={`solar-${index}`}>
                     <Link
                       href={`/services/${service.slug}`}
@@ -80,7 +117,7 @@ const Sidebar = ({ company = companyName }) => {
             </div>
 
             <SheetClose asChild>
-              <Link href="/#contact" className="text-lg font-medium hover:text-primary transition-colors py-2">Contact</Link>
+              <Link href={contactHref} className={cn("text-lg font-medium transition-colors py-2", isBrand ? "text-gray-800 hover:text-gray-600" : "text-white hover:text-white/70")}>Contact</Link>
             </SheetClose>
           </div>
         </SheetContent>

@@ -2,26 +2,24 @@
 
 import { cn } from "@/lib/utils";
 import { companyName, dialPhone, sendMessage } from "@/libs/data";
+import { getBrandTheme } from "@/libs/brandTheme";
+
+const BRANDS = ["lg", "siemens", "samsung", "bosch"];
 
 const CallAndWhatsappButton = ({ className, company = companyName }) => {
+  const isBrand = BRANDS.includes(company.toLowerCase());
+  const theme = getBrandTheme(company);
+
   return (
     <div className={cn(className, "flex items-center gap-3")}>
-      {/* Call Us Button - Keep background same, white text */}
+      {/* Call Us Button */}
       <button
         onClick={dialPhone}
         className={cn(
-          "group flex items-center gap-2 px-4 rounded-sm text-sm py-2 whitespace-nowrap",
-          company === "Lg"
-            ? "bg-lgPrimary border-lgPrimary text-white"
-            : company === "Samsung"
-              ? "bg-samsungPrimary border-samsungPrimary text-white"
-              : company === "Bosch"
-                ? "bg-boschPrimary border-boschPrimary text-white"
-                : company === "Siemens"
-                  ? "bg-siemensPrimary border-siemensPrimary text-white"
-                  : "bg-primary border-primary text-white",
-          "hover:opacity-90 transition-opacity"
+          "group flex items-center gap-2 px-4 rounded-sm text-sm py-2 whitespace-nowrap text-white hover:opacity-90 transition-opacity",
+          !isBrand && "bg-primary"
         )}
+        style={isBrand ? { backgroundColor: theme.primary } : {}}
       >
         <span className="text-white">{phoneSvg}</span>
         <div className="relative">
@@ -32,20 +30,19 @@ const CallAndWhatsappButton = ({ className, company = companyName }) => {
         </div>
       </button>
 
-      {/* Whatsapp Button - White background, black text */}
+      {/* Whatsapp Button - Charcoal background, white text (visible on both dark and light bg) */}
       <button
         onClick={sendMessage}
         className={cn(
           "group flex items-center gap-2 px-4 rounded-sm text-sm py-2 whitespace-nowrap",
-          "bg-white border-white text-black",
-          "hover:bg-gray-50 hover:border-gray-200 transition-colors"
+          "bg-zinc-800 text-white hover:bg-zinc-700 transition-colors"
         )}
       >
-        <span className="text-black">{whatsappSvg}</span>
+        <span className="text-white">{whatsappSvg}</span>
         <div className="relative">
-          <span className="text-black font-medium">Whatsapp</span>
+          <span className="text-white font-medium">Whatsapp</span>
           <span
-            className="w-0 absolute bottom-0.5 left-0 transition-all ease-in duration-200 group-hover:w-full h-[1px] bg-black"
+            className="w-0 absolute bottom-0.5 left-0 transition-all ease-in duration-200 group-hover:w-full h-[1px] bg-white"
           ></span>
         </div>
       </button>
