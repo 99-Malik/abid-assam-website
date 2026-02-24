@@ -117,7 +117,7 @@ const Footer = ({ company }) => {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className={cn("w-4 h-4 shrink-0", isBrand ? theme.iconText : "text-primary")} />
-                <span>+971 52 752 0038</span>
+                <span>+971 52 372 2012</span>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 export const companyName = "Instant Repairs UAE";
 
-export const phoneNumber = "+971527520038";
+export const phoneNumber = "+971523722012";
 
 export const sendMessage = () => {
     const message = "Hello, I need assistance with my air conditioner.";
