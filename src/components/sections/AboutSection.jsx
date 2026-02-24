@@ -78,7 +78,7 @@ const AboutSection = ({ company = companyName }) => {
               {/* Brand badge overlay on image */}
               {isBrand && (
                 <div className={cn("absolute top-4 left-4 px-3 py-1 rounded-full text-white text-xs font-bold uppercase tracking-wider", theme.bgPrimary)}>
-                  {name} Certified
+                  {name} Specialist
                 </div>
               )}
 
@@ -114,7 +114,7 @@ const AboutSection = ({ company = companyName }) => {
 
             <p className={cn("text-lg leading-relaxed", isBrand ? theme.bodyText : "text-muted-foreground")}>
               {isBrand
-                ? `We are authorized service specialists for ${name} appliances in Dubai & UAE. Our certified technicians are factory-trained to diagnose and repair all ${name} models with genuine parts and industry-leading standards.`
+                ? `We are specialist repair experts for ${name} appliances in Dubai & UAE. Our skilled technicians are trained to diagnose and repair all ${name} models with genuine parts and industry-leading standards.`
                 : "We are dedicated to providing exceptional home appliance repair services with a focus on quality and customer satisfaction. Our team of skilled technicians is experienced in diagnosing and fixing a wide range of appliances, ensuring your home runs smoothly."
               }
             </p>

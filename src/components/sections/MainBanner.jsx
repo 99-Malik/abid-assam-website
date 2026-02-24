@@ -22,7 +22,7 @@ const brandCopy = {
   },
   bosch: {
     heading: "Bosch Service Center",
-    sub: "Professional repair for your Bosch appliances by certified technicians. Quality parts, transparent pricing, same-day service available.",
+    sub: "Professional repair for your Bosch appliances by expert technicians. Quality parts, transparent pricing, same-day service available.",
   },
 };
 

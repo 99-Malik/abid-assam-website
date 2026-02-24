@@ -119,7 +119,7 @@ export const getData = (company) => {
       title: "Oven Repair",
       slug: "oven-repair",
       imgUrl: "/static/oven-premium.png",
-      description: `Restore the heart of your kitchen. Professional ${company} oven repairs that guarantee perfect roasts and bakes. Safe, fast, and certified service.`,
+      description: `Restore the heart of your kitchen. Professional ${company} oven repairs that guarantee perfect roasts and bakes. Safe, fast, and reliable service.`,
       commonProblems: [
         "Oven not heating",
         "Temperature issues",

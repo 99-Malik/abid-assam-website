@@ -10,7 +10,7 @@ const steps = [
     {
         icon: <Wrench size={32} />,
         title: "2. Expert Diagnosis",
-        description: "Our certified expert arrives, diagnoses the issue, and provides a transparent quote."
+        description: "Our expert technician arrives, diagnoses the issue, and provides a transparent quote."
     },
     {
         icon: <Smile size={32} />,

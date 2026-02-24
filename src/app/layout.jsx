@@ -12,7 +12,7 @@ const font = Outfit({
 
 export const metadata = {
   title: companyName,
-  description: "Expert Appliance Repair Services in UAE. Brand authorized partners for Bosch, Siemens, and more.",
+  description: "Expert Appliance Repair Services in UAE. Trusted repair specialists for Bosch, Siemens, Samsung, LG and more.",
 };
 
 export default function RootLayout({ children }) {

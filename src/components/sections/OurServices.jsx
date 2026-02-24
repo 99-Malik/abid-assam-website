@@ -42,7 +42,7 @@ const OurServices = ({ company = companyName }) => {
             {company === "Water-heater"
               ? "We specialize in diagnosing, repairing, and maintaining solar water heating systems for maximum efficiency."
               : isBrand
-                ? `We are certified specialists for all ${name} appliances. Expert repair, genuine parts, and fast turnaround in Dubai & UAE.`
+                ? `We are trusted specialists for all ${name} appliances. Expert repair, genuine parts, and fast turnaround in Dubai & UAE.`
                 : "We specialize in diagnosing and repairing a wide range of household appliances. Experience the difference with our expert care."
             }
           </p>

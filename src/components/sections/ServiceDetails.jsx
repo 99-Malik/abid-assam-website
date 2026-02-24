@@ -49,7 +49,7 @@ const ServiceDetails = ({ company = companyName }) => {
             {company === "Water-heater"
               ? "From leaking pipes to faulty sensors, we cover all aspects of solar water heater repair and maintenance."
               : isBrand
-                ? `From washing machines to ovens, our ${name}-certified technicians cover every appliance with precision, genuine parts, and comprehensive repair expertise.`
+                ? `From washing machines to ovens, our skilled ${name} technicians cover every appliance with precision, genuine parts, and comprehensive repair expertise.`
                 : "We offer a comprehensive range of home appliance repair services tailored to meet your specific needs. From rigorous diagnostics to premium repairs, we ensure everything is handled with care."
             }
           </p>

@@ -47,7 +47,7 @@ const ServiceDetailPage = ({ slug, company = companyName }) => {
   const getServiceContent = (serviceSlug) => {
     const contentMap = {
       "dishwasher-repair": {
-        overview: "Professional dishwasher repair services ensure your kitchen runs smoothly. Our certified technicians diagnose and fix all dishwasher issues with precision and care.",
+        overview: "Professional dishwasher repair services ensure your kitchen runs smoothly. Our expert technicians diagnose and fix all dishwasher issues with precision and care.",
         keyFeatures: [
           "Complete diagnostic assessment",
           "Water pump and motor repair",
@@ -783,7 +783,7 @@ const ServiceDetailPage = ({ slug, company = companyName }) => {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-green-400" />
-                <span>Certified Technicians</span>
+                <span>Expert Technicians</span>
               </div>
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4 text-primary" />

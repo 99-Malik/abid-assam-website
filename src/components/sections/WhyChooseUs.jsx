@@ -32,8 +32,8 @@ const WhyChooseUs = ({ company = companyName }) => {
       icon: Wrench,
       title: "Expert Technicians",
       description: isBrand
-        ? `Factory-certified ${name} technicians using manufacturer-approved techniques for precise, reliable repairs.`
-        : "Our certified technicians use the latest techniques for efficient and reliable service."
+        ? `Experienced ${name} technicians using manufacturer-recommended techniques for precise, reliable repairs.`
+        : "Our expert technicians use the latest techniques for efficient and reliable service."
     },
     {
       icon: Award,
