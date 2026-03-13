@@ -4,10 +4,17 @@ export const phoneNumber = "+971523722012";
 
 export const sendMessage = () => {
     const message = "Hello, I need assistance with my air conditioner.";
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-        message
-    )}`;
-    window.open(url, "_blank"); // Opens WhatsApp in a new tab
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    if (typeof gtag === "function") {
+        gtag("event", "conversion", {
+            send_to: "AW-17646485914/WmyXCJ-V84ccEJqDwN5B",
+            value: 3000.0,
+            currency: "PKR",
+            event_callback: () => window.open(url, "_blank"),
+        });
+    } else {
+        window.open(url, "_blank");
+    }
 };
 
 export const dialPhone = () => {
