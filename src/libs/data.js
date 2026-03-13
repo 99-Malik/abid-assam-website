@@ -22,7 +22,7 @@ export const dialPhone = () => {
   if (typeof gtag === "function") {
     gtag("event", "conversion", {
       send_to: "AW-17646485914/1gcZCJPS_IccEJqDwN5B",
-      value: 1.0,
+      value: 3000.0,
       currency: "PKR",
       event_callback: () => {
         window.location.href = `tel:${phoneNumber}`;
